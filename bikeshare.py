@@ -177,12 +177,12 @@ def user_stats(df):
 
     # Display counts of user types
     type_counts = df["User Type"].value_counts()
-    print("There were", type_counts["Subscriber"], "subscribers and", type_counts["Customer"], "customers in this time period")
+    print("There were {} subscribers and {} customers in this time period".format(type_counts["Subscriber"], type_counts["Customer"]))
 
     # Display counts of gender
     if 'Gender' in df:
         type_counts = df["Gender"].value_counts()
-        print("There were", type_counts["Male"], "men and", type_counts["Female"], "women users in this time period")
+        print("There were {} men and {} women users in this time period".format(type_counts["Male"], type_counts["Female"]))
 
     # Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df:
@@ -197,7 +197,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-def raw_data(df):
+def display_raw_data(df):
     current_row = 0
 
     # Display raw data to user until they request to stop
@@ -224,7 +224,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        raw_data(df)
+        display_raw_data(df)
 
         while True:
             restart = input('\nWould you like to restart? Enter \"Yes\" or \"No\".\n')
