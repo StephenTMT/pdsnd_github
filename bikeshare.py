@@ -199,6 +199,8 @@ def user_stats(df):
 
 def raw_data(df):
     current_row = 0
+
+    # Display raw data to user until they request to stop
     while True:
         next_set = df[current_row:current_row+5]
         current_row = current_row + 5
